@@ -37,5 +37,6 @@ module.exports = {
     'require-jsdoc': 'off',
     'react/react-in-jsx-scope': 'off',
     'no-trailing-spaces': 'warn',
+    'react/prop-types': 'off',
   },
 };
