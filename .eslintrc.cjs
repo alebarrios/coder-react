@@ -1,15 +1,41 @@
 module.exports = {
-  env: { browser: true, es2020: true },
-  extends: [
-    'eslint:recommended',
-    'plugin:react/recommended',
-    'plugin:react/jsx-runtime',
-    'plugin:react-hooks/recommended',
-  ],
-  parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
-  plugins: ['react-refresh'],
-  rules: {
-    'react-refresh/only-export-components': 'warn',
+  "env": {
+    "browser": true,
+    "es2021": true,
   },
-}
+  "extends": [
+    "google",
+    "plugin:react/recommended",
+  ],
+  "overrides": [
+    {
+      "env": {
+        "node": true,
+      },
+      "files": [
+        ".eslintrc.{js,cjs}",
+      ],
+      "parserOptions": {
+        "sourceType": "script",
+      },
+    },
+  ],
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+  },
+  "plugins": [
+    "react",
+  ],
+  "rules": {
+    'quotes':
+      [0, 'single', {'avoidEscape': true, 'allowTemplateLiterals': true}],
+    'linebreak-style': 'off',
+    'comma-dangle': 'warn',
+    'no-extra-semi': 'warn',
+    'semi': 'warn',
+    'require-jsdoc': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'no-trailing-spaces': 'warn',
+  },
+};
