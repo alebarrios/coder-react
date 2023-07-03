@@ -38,5 +38,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'no-trailing-spaces': 'warn',
     'react/prop-types': 'off',
+    'object-curly-spacing': 'off',
+    'no-unused-vars': 'warn',
+    'max-len': ['warn', {'ignoreStrings': true}],
   },
 };

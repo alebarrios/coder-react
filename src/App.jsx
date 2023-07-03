@@ -3,12 +3,12 @@ import Navbar from './components/Navbar';
 import ItemListContainer from './components/ItemListContainer';
 
 function App() {
+  const greeting = "Hola, bienvenid@ a mi tienda!";
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
+    <>
       <Navbar />
-      <ItemListContainer greeting={"hola"}/>
-    </h1>
+      <ItemListContainer greeting={greeting}/>
+    </>
   );
 }
 
