@@ -34,13 +34,13 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src="/logo-furniture.svg"
-                    alt="Your Company"
+                    src="./logo-furniture.svg"
+                    alt="Logo"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="/logo-furniture.svg"
-                    alt="Your Company"
+                    src="./logo-furniture.svg"
+                    alt="Logo"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
@@ -68,7 +68,6 @@ export default function Navbar() {
                   type="button"
                   className="rounded-full bg-transparent p-1 text-blue-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 >
-                  {/* <ShoppingCartIcon className="h-6 w-6" aria-hidden="true" /> */}
                   <CartWidget />
                 </button>
               </div>
