@@ -4,10 +4,10 @@ import CartWidget from "./CartWidget";
 import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Living", href: "#", current: false },
-  { name: "Comedor", href: "#", current: false },
-  { name: "Iluminación", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  { name: "Living", href: "/category/living", current: false },
+  { name: "Comedor", href: "/category/comedor", current: false },
+  { name: "Iluminación", href: "/category/iluminacion", current: false },
 ];
 
 function classNames(...classes) {
@@ -48,9 +48,9 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <NavLink
+                        to={item.href}
                         key={item.name}
-                        href={item.href}
                         className={classNames(
                           item.current ?
                             "bg-blue-700 text-white" :
@@ -60,7 +60,7 @@ export default function Navbar() {
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                      </a>
+                      </NavLink>
                     ))}
                   </div>
                 </div>
