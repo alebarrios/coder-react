@@ -4,7 +4,7 @@
       "id" : 1,
       "name" : "Sofa Lino Blanco",
       "price": 850000,
-      "image": "./Sofa-modular-de-lino-blanco-NUBE-LINO-SOSIEGO-BLANCO-Landmark-00.webp",
+      "image": "Sofa-modular-de-lino-blanco-NUBE-LINO-SOSIEGO-BLANCO-Landmark-00.webp",
       "description": "Ideado para ofrecer una experiencia de confort absoluto, nuestro sofá modular Nube está generosamente acolchado en cada una de sus piezas, con volúmenes suaves y libres de aristas. Construido para un descanso relajado tiene amplios almohadones, respaldo y apoyabrazos con un relleno pensado para hundirse en la comodidad, y está confeccionado en lino belga que le otorgan una terminación refinada e informal al mismo tiempo. Su diseño de módulos permite una gran variedad de formas de armado que se adaptan a cada espacio y a cada necesidad. Disponible en otros colores.",
       "category": "Living",
       "quantity": 3
@@ -13,7 +13,7 @@
       "id" : 2,
       "name" : "Sillon Togo Camel",
       "price": 300000,
-      "image": "./Sillon-tipo-puff-de-pana-TOGO-CAMEL-Landmark-00.webp",
+      "image": "Sillon-tipo-puff-de-pana-TOGO-CAMEL-Landmark-00.webp",
       "description": "Inspirada en el icónico sillón Ligne Roset Togo creado en los años 70 por Michel Ducaroy, nuestra réplica representa una comodidad extrema y modernidad asegurada. Su forma orgánica, sus líneas sobrias y su diseño relajado garantizan que se adapte tanto a un interior clásico como a uno más contemporáneo. Nuestra reversión de un tradicional sillón se destaca por su mullida y acogedora estructura hecha en pura espuma de distintas densidades, y su revestimiento en pana de pelo largo que acompaña con su textura la suavidad de las líneas. Pieza de mucha fuerza visual con un carácter atemporal que invita a descansar en un máximo confort. Disponible en variedad de colores.",
       "category": "Living",
       "quantity": 4
@@ -22,7 +22,7 @@
       "id" : 3,
       "name" : "Puff Atila Gray",
       "price": 54000,
-      "image": "./Landmark-Muebles-ATILA-YUTE-GREY-Puff-0.webp",
+      "image": "Landmark-Muebles-ATILA-YUTE-GREY-Puff-0.webp",
       "description": "Puff redondo fabricado en fibra trenzada de yute natural en color gris con relleno de algodón, por lo que resulta muy cómodo, ideal para proporcionar un punto de descanso en el rincón que elijas. Elemento decorativo muy recurrido en muchos hogares, y por su diseño y estructura resulta una opción extraordinaria y meramente práctica. Versátil, ya que aporta un acento natural y descontracturado, y además tiene múltiples funciones; ¡siéntese o descanse sus pies sobre el puff! Dada su condición natural, puede presentar variaciones en su tonalidad haciendo que cada pieza sea única. Conoce toda nuestra línea de fibras naturales.",
       "category": "Living",
       "quantity": 4
@@ -31,7 +31,7 @@
       "id" : 4,
       "name" : "Lámpara colgante Callie",
       "price": 290000,
-      "image": "./Landmark-Iluminacion-CALLIE-LamparaColgante-0.webp",
+      "image": "Landmark-Iluminacion-CALLIE-LamparaColgante-0.webp",
       "description": "Con su forma equilibrada y su simetría irregular, compuesta por relucientes globos de vidrio en color blanco que parecen flotar contra un eje central de acero pulido, genera una apariencia elevada y moderna. Inspirada en diseños de la década del ’40 es un elemento perfecto para la iluminación en comedores. Focos no incluidos.",
       "category": "Iluminacion",
       "quantity": 5
@@ -40,7 +40,7 @@
       "id" : 5,
       "name" : "Aplique de pared cromado",
       "price": 120000,
-      "image": "./Aplique-de-pared-cromado-APLIQUE-DE-PARED-CROMADO-Landmark-00.webp",
+      "image": "Aplique-de-pared-cromado-APLIQUE-DE-PARED-CROMADO-Landmark-00.webp",
       "description": "Aplique de pared de líneas simples, diseño elegante y discreto para contribuir un acento a cualquier espacio. Hecho en impecable acero con acabado cromado. Ideal para exhibir dos unidades próximas para llevar la iluminación a lugares donde más se requiere, como recibidores o pasillos. Foco no incluido.",
       "category": "Iluminacion",
       "quantity": 5
@@ -49,7 +49,7 @@
       "id" : 6,
       "name" : "Velador Juno",
       "price": 115000,
-      "image": "./Velador-moderno-minimalista-JUNO-Landmark-00.webp",
+      "image": "Velador-moderno-minimalista-JUNO-Landmark-00.webp",
       "description": "Con su base redondeada de mármol blanco, delicado globo de vidrio en color blanco y estructura metálica en color dorado, nuestra lámpara de mesa inspirada en globos terráqueos es perfecta para cualquier decoración moderna o contemporánea otorgando elegancia y lujo extra. Gracias a la iluminación tenue que irradia, puede ser utilizada en mesas bajas, mesas de noche y hasta en escritorios. Foco no incluido.",
       "category": "Iluminacion",
       "quantity": 11
@@ -58,7 +58,7 @@
       "id" : 7,
       "name" : "Mesa de comedor Oslo",
       "price": 510000,
-      "image": "./Mesa-de-comedor-de-madera-OSLO-210-X-110-Landmark-00.webp",
+      "image": "Mesa-de-comedor-de-madera-OSLO-210-X-110-Landmark-00.webp",
       "description": "Una interpretación contemporánea francesa de la década de 1940, nuestra mesa Oslo celebra formas orgánicas de bordes redondeados que resaltan la textura de la madera. Las curvas de radio de la base y la tapa interactúa con las líneas rectas, todo resaltado por la calidez del cedro macizo ricamente veteado en color nogal, logrando un producto de gran presencia. Dada la naturaleza artesanal y acabada a mano, las variaciones e imperfecciones, cada producto es único. Disponible en variedad de medidas.",
       "category": "Comedor",
       "quantity": 2
@@ -67,7 +67,7 @@
       "id" : 8,
       "name" : "Silla West Aluminio",
       "price": 89000,
-      "image": "./Silla-de-comedor-de-madera-con-almohadon-WEST-PREGO-ALUMINIO-Landmark-00.webp",
+      "image": "Silla-de-comedor-de-madera-con-almohadon-WEST-PREGO-ALUMINIO-Landmark-00.webp",
       "description": "Nuestra silla West, de carácter contemporáneo, está confeccionada en madera de petiribí con lustre natural y asiento tapizado en tela prego color aluminio. Esta silla aporta elegancia a todo comedor. Dada su naturaleza hecha a mano y el carácter natural de la madera, se esperan variaciones en el acabado y terminaciones haciendo cada elemento único. Conoce toda nuestra línea West.",
       "category": "Comedor",
       "quantity": 1
@@ -76,7 +76,7 @@
       "id" : 9,
       "name" : "Banqueta alta Brown",
       "price": 210000,
-      "image": "./Landmark-Muebles-AVIATOR-DI-BROWN-BanquetaAlta-0.webp",
+      "image": "Landmark-Muebles-AVIATOR-DI-BROWN-BanquetaAlta-0.webp",
       "description": "Banqueta alta inspirada en los asientos de cabina del avión militar americano F-14 Tomcat. Las curvas aerodinámicas están recubiertas en aluminio remachado sometidas a un proceso de cinco etapas de desgaste para crear el exclusivo acabado. El asiento está tapizado en cuero natural y es regulable en altura. El acabado de desgaste puede variar de una pieza a otra. Disponible también en color negro.",
       "category": "Comedor",
       "quantity": 3
@@ -85,7 +85,7 @@
       "id" : 10,
       "name" : "Vajillero Provence",
       "price": 210000,
-      "image": "./Vajillero-bajo-de-madera-PROVENCE-PETIRIBI-200X44X80CM-Landmark-00.webp",
+      "image": "Vajillero-bajo-de-madera-PROVENCE-PETIRIBI-200X44X80CM-Landmark-00.webp",
       "description": "Mueble vajillero, de inspiración danesa, que se destaca mientras logra a su vez integrarse en cualquier espacio. Con líneas limpias, nuestro vajillero Provence está elaborado en madera de petiribí enchapada con un lustre natural. Este mueble de madera aporta gran capacidad de guardado en su interior y permite su uso en diversos espacios; está listo para almacenar vajilla, ropa de cama y sus libros favoritos. Disponible en diversas terminaciones y/o lustres.",
       "category": "Living",
       "quantity": 1

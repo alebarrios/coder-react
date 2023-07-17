@@ -1,6 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import CartWidget from "./CartWidget";
+import { NavLink } from "react-router-dom";
 
 const navigation = [
   { name: "Home", href: "#", current: true },
@@ -32,18 +33,18 @@ export default function Navbar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <NavLink to={'/'} className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-8 w-auto lg:hidden"
-                    src="./logo-furniture.svg"
+                    src="/logo-furniture.svg"
                     alt="Logo"
                   />
                   <img
                     className="hidden h-8 w-auto lg:block"
-                    src="./logo-furniture.svg"
+                    src="/logo-furniture.svg"
                     alt="Logo"
                   />
-                </div>
+                </NavLink>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
