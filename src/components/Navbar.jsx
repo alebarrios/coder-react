@@ -3,9 +3,10 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import CartWidget from "./CartWidget";
 
 const navigation = [
-  { name: "Inicio", href: "#", current: true },
-  { name: "Productos", href: "#", current: false },
-  { name: "Contacto", href: "#", current: false },
+  { name: "Home", href: "#", current: true },
+  { name: "Living", href: "#", current: false },
+  { name: "Comedor", href: "#", current: false },
+  { name: "Iluminación", href: "#", current: false },
 ];
 
 function classNames(...classes) {
