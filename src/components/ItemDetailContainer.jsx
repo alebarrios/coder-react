@@ -14,8 +14,3 @@ const ItemDetailContainer = () => {
 
 export default ItemDetailContainer;
 
-// eN ItemDetailContainer tiene que haber un useEffect, useParams y un useState.
-// Dentro del useEffect hay que hacer un find del item que corresponde al id que viene por params.
-
-// En ItemDetail le paso prop item.
-// Dentro de ItemDetail debe estar el ItemCount.
