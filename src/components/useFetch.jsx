@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 
 const useFetch = (url, categoryId) => {
-  console.log(`entra a useFetch con ${url}`);
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -19,7 +18,6 @@ const useFetch = (url, categoryId) => {
     fetchData();
   }, [categoryId]);
 
-  console.log("useFetch actualizando: ", data);
   return data;
 };
 

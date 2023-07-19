@@ -11,7 +11,6 @@ const ItemListContainer = () => {
         data.products?.filter((product) => product.category === categoryId) :
         data?.products;
 
-  console.log("data es", filterData);
   return (
     <ItemList products={filterData}/>
   );
@@ -19,6 +18,3 @@ const ItemListContainer = () => {
 
 export default ItemListContainer;
 
-// tengo que ir a buscar la data cuando se actualiza el useParams dentro de un useEffect
-// En ItemListContainer va el filter
-// En ItemList va el map
