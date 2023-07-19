@@ -9,7 +9,10 @@ const ItemDetailContainer = () => {
   const item = data.products?.find((product) => product.id === parseInt(id));
   console.log("item es", item);
 
-  return (item ? <ItemDetail item={item} /> : <div>Cargando...</div>);
+  return (
+   item ? <div className="flex justify-center m-4"><ItemDetail item={item} /></div> :
+   <div>Cargando...</div>
+  );
 };
 
 export default ItemDetailContainer;
