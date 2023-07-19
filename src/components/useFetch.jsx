@@ -8,13 +8,11 @@ const useFetch = (url, categoryId) => {
       try {
         const res = await fetch(url);
         const json = await res.json();
-        console.log("Se llama a setData: ", json);
         setData(json);
       } catch (error) {
         console.log("Error en el fetch: ", error);
       }
     };
-    console.log("se llama a fetchData");
     fetchData();
   }, [categoryId]);
 

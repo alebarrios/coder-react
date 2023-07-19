@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
 
 const ItemListContainer = () => {
-  console.log("Inicia ItemListContainer");
   const { categoryId } = useParams();
   const data = useFetch('../src/data/products.json', categoryId);
 
