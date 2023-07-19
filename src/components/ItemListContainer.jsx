@@ -1,23 +1,24 @@
-import React from 'react';
 import useFetch from './useFetch';
 import { useParams } from 'react-router-dom';
-import Item from './Item';
+import ItemList from './ItemList';
 
 const ItemListContainer = () => {
-  const [data] = useFetch('../src/data/products.json');
+  console.log("Inicia ItemListContainer");
   const { categoryId } = useParams();
+  const data = useFetch('../src/data/products.json', categoryId);
+
+  const filterData = categoryId ?
+        data.products?.filter((product) => product.category === categoryId) :
+        data?.products;
+
+  console.log("data es", filterData);
   return (
-    <div className='bg-orange-600 text-center text-4xl text-slate-200 m-4 p-4 max-w-[80%] mx-auto rounded-xl'>
-    Dentro de ItemListContainer, categoryId es { categoryId }
-      {
-        data && data.products.map((product) => {
-          return (
-            <Item key={product.id} {...product} />
-          );
-        })
-      }
-    </div>
+    <ItemList products={filterData}/>
   );
 };
 
 export default ItemListContainer;
+
+// tengo que ir a buscar la data cuando se actualiza el useParams dentro de un useEffect
+// En ItemListContainer va el filter
+// En ItemList va el map

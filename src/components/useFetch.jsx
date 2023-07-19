@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
 
-const useFetch = (url) => {
-  const [data, setData] = useState(null);
+const useFetch = (url, categoryId) => {
+  console.log(`entra a useFetch con ${url}`);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      fetch(url)
-          .then((res) => res.json())
-          .then((data) => setData(data));
+      try {
+        const res = await fetch(url);
+        const json = await res.json();
+        console.log("Se llama a setData: ", json);
+        setData(json);
+      } catch (error) {
+        console.log("Error en el fetch: ", error);
+      }
     };
+    console.log("se llama a fetchData");
     fetchData();
-  }, [url]);
+  }, [categoryId]);
 
-  return [data];
+  console.log("useFetch actualizando: ", data);
+  return data;
 };
 
 export default useFetch;
