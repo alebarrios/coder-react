@@ -1,7 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import ItemCount from "./ItemCount";
+import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ item }) => {
+  const { addItem } = useContext(CartContext);
+
+  const handleOnAdd = (quantity) => {
+    const itemToAdd = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      image: item.image,
+    };
+    addItem(itemToAdd, quantity);
+  };
+
+
   return (
     <div className="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-[80%] hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
       <img className="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={"/" + item.image} alt=""/>
@@ -9,10 +23,7 @@ const ItemDetail = ({ item }) => {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.description}</p>
         <span className="text-3xl font-bold text-gray-900 dark:text-white my-2">$ {item.price}</span>
-        <a onClick={() => alert("El producto " + item.name + " se agregará al carrito en la próxima entrega")}
-          href="#" className="md:max-w-[10rem] text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
-          font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar al Carrito</a>
-        <ItemCount stockItems={item.quantity}/>
+        <ItemCount stockItems={item.quantity} onAdd={handleOnAdd}/>
       </div>
     </div>
   );
