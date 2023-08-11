@@ -51,12 +51,9 @@ export default function Navbar() {
                       <NavLink
                         to={item.href}
                         key={item.name}
-                        className={classNames(
-                          item.current ?
-                            "bg-blue-700 text-white" :
-                            "text-stone-800 hover:bg-blue-600 hover:text-white",
-                          "rounded-md px-3 py-2 text-sm font-medium",
-                        )}
+                        className={({ isActive }) => (isActive ? "bg-blue-700 text-white rounded-md px-3 py-2 text-sm font-medium" :
+                            "text-stone-800 hover:bg-blue-600 hover:text-white rounded-md px-3 py-2 text-sm font-medium")
+                        }
                         aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
