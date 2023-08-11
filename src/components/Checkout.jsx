@@ -17,15 +17,30 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log("hizo submit");
+    emailsAreTheSame(e) ? console.log("son iguales") : console.log("no son iguales");
+  };
+
+  const emailsAreTheSame = (e) => {
+    return e.target.email.value === e.target.email2.value;
+  };
+
+
+  const handleInputChange = (e) => {
+    console.log(e.target.value);
+    setBuyer({
+      ...buyer,
+      [e.target.name]: e.target.value,
+    });
   };
 
   return (
     <form onSubmit={handleSubmit} className="px-3">
       <div className="space-y-12">
-        <div className="border-b border-gray-900/10 pb-12">
+        <div className="border-b border-gray-900/10 pb-6">
           <h2 className="text-center sm:text-left text-base font-semibold leading-7 text-gray-900 mb-4">Detalle de la Compra</h2>
-          <ul role="list" className="-my-6 divide-y divide-gray-200">
-            { !cart.length ? <p className="mt-0.5 text-sm text-gray-500">No hay artículos en el carrito.</p>:
+          <ul role="list" className="my-4 divide-y divide-gray-200">
+            { !cart.length ? <p className="mt-0.5 text-sm text-center sm:text-left text-gray-500">No hay artículos en el carrito.</p>:
             cart.map((product) => (
               <li key={product.item.id} className="flex py-6">
                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
@@ -55,7 +70,11 @@ export default function Checkout() {
               </li>
             ))}
           </ul>
-
+          <div className="flex justify-between text-base font-medium text-gray-900">
+            <p>Total</p>
+            <p>${numberWithCommas(
+                cart.reduce((acum, i) => i.item.price + acum, 0))}</p>
+          </div>
         </div>
 
         <div className="border-b border-gray-900/10 pb-5">
@@ -73,6 +92,8 @@ export default function Checkout() {
                   name="first-name"
                   id="first-name"
                   autoComplete="given-name"
+                  required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -88,6 +109,23 @@ export default function Checkout() {
                   name="last-name"
                   id="last-name"
                   autoComplete="family-name"
+                  required
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                />
+              </div>
+            </div>
+
+            <div className="sm:col-span-2">
+              <label htmlFor="postal-code" className="block text-sm font-medium leading-6 text-gray-900">
+                Teléfono
+              </label>
+              <div className="mt-2">
+                <input
+                  type="number"
+                  name="telephone"
+                  id="telephone"
+                  autoComplete="telephone"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -103,6 +141,7 @@ export default function Checkout() {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -118,6 +157,7 @@ export default function Checkout() {
                   name="email2"
                   type="email"
                   autoComplete="email"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -150,6 +190,7 @@ export default function Checkout() {
                   name="street-address"
                   id="street-address"
                   autoComplete="street-address"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -165,6 +206,7 @@ export default function Checkout() {
                   name="city"
                   id="city"
                   autoComplete="address-level2"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -180,6 +222,7 @@ export default function Checkout() {
                   name="region"
                   id="region"
                   autoComplete="address-level1"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -191,10 +234,11 @@ export default function Checkout() {
               </label>
               <div className="mt-2">
                 <input
-                  type="text"
+                  type="number"
                   name="postal-code"
                   id="postal-code"
                   autoComplete="postal-code"
+                  required
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
