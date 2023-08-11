@@ -4,7 +4,7 @@ import CartWidget from "./CartWidget";
 import { NavLink } from "react-router-dom";
 
 const navigation = [
-  { name: "Home", href: "/", current: true },
+  { name: "Home", href: "/", current: false },
   { name: "Living", href: "/category/living", current: false },
   { name: "Comedor", href: "/category/comedor", current: false },
   { name: "Iluminación", href: "/category/iluminacion", current: false },
