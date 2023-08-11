@@ -11,6 +11,10 @@ export default function Checkout() {
     email: "",
   });
 
+  function classNames(...classes) {
+    return classes.filter(Boolean).join(" ");
+  }
+
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
@@ -253,11 +257,17 @@ export default function Checkout() {
       </div>
 
       <div className="flex items-center justify-center sm:justify-start mb-2">
-        <input
+        <button disabled={!cart.length}
           type="submit"
-          value="Generar Orden"
-          className="rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700"
-        />
+          className={classNames(
+            !cart.length ?
+            "bg-indigo-300" :
+            "bg-indigo-600 hover:bg-indigo-700",
+            "rounded-md border border-transparent  px-6 py-3 text-base font-medium text-white shadow-sm",
+          )}
+        >
+          Generar Orden
+        </button>
       </div>
     </form>
   );
