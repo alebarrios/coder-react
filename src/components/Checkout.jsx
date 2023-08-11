@@ -18,7 +18,10 @@ export default function Checkout() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("hizo submit");
-    emailsAreTheSame(e) ? console.log("son iguales") : console.log("no son iguales");
+    if ( !emailsAreTheSame(e) ) {
+      e.target.email2.setCustomValidity("Los Emails no coinciden.");
+      e.target.email2.reportValidity();
+    }
   };
 
   const emailsAreTheSame = (e) => {
@@ -27,6 +30,7 @@ export default function Checkout() {
 
 
   const handleInputChange = (e) => {
+    e.target.setCustomValidity("");
     console.log(e.target.value);
     setBuyer({
       ...buyer,
@@ -158,6 +162,7 @@ export default function Checkout() {
                   type="email"
                   autoComplete="email"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
