@@ -18,6 +18,10 @@ npm run dev
 ```
 La App se abrirá en el navegador predeterminado.
 
+También se puede acceder a la versión en vivo del proyecto:
+
+https://coder-react-three.vercel.app/
+
 ## Librerías utilizadas
 
 Vite.js:  Se utilizó este bundler ya que es muy ágil y fácil de usar.
