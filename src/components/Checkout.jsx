@@ -35,6 +35,10 @@ export default function Checkout() {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
+  const emailsAreTheSame = (e) => {
+    return e.target.email.value === e.target.email2.value;
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("hizo submit");
@@ -47,13 +51,13 @@ export default function Checkout() {
     const dia = new Date();
     const order = { buyer, cart, total, dia };
     console.log(order);
+    generateOrder(order);
   };
 
-  const emailsAreTheSame = (e) => {
-    return e.target.email.value === e.target.email2.value;
+  const generateOrder = (order) => {
+
   };
-
-
+  
   const handleInputChange = (e) => {
     e.target.setCustomValidity("");
     console.log(e.target.value);
