@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 
 export default function Cart() {
   const { cart, removeItem } = useContext(CartContext);
-  console.log("En cart: ", cart);
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");

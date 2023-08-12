@@ -1,9 +1,10 @@
 import React from "react";
 import { useState, useContext } from "react";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import { CartContext } from "../context/CartContext";
 
 export default function Checkout() {
-  const { cart } = useContext(CartContext);
+  const { cart, clearCart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const [buyer, setBuyer] = useState({
     firstName: "",
@@ -41,7 +42,7 @@ export default function Checkout() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hizo submit");
+
     if ( !emailsAreTheSame(e) ) {
       e.target.email2.setCustomValidity("Los Emails no coinciden.");
       e.target.email2.reportValidity();
@@ -50,25 +51,32 @@ export default function Checkout() {
     const total = cart.reduce((acum, i) => i.item.price + acum, 0);
     const dia = new Date();
     const order = { buyer, cart, total, dia };
-    console.log(order);
+
     generateOrder(order);
   };
 
-  const generateOrder = (order) => {
-
+  const generateOrder = async (orderData) => {
+    try {
+      const db = getFirestore();
+      const queryCollection = collection(db, "orders");
+      const order = await addDoc(queryCollection, orderData);
+      setOrderId(order.id);
+      clearCart();
+    } catch (error) {
+      console.log("Error al generar la orden: ", error);
+    }
   };
 
   const handleInputChange = (e) => {
     e.target.setCustomValidity("");
-    console.log(e.target.value);
+
     setBuyer({
       ...buyer,
       [e.target.name]: e.target.value,
     });
-    // console.log(buyer);
   };
 
-  return (
+  return !orderId ? (
     <form onSubmit={handleSubmit} className="px-3">
       <div className="space-y-12">
         <div className="border-b border-gray-900/10 pb-6">
@@ -303,5 +311,24 @@ export default function Checkout() {
         </button>
       </div>
     </form>
+  ) :
+  (
+    <div className="overflow-hidden bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2">
+          <div className="lg:pr-8 lg:pt-4">
+            <div className="lg:max-w-lg">
+              <h2 className="text-base font-semibold leading-7 text-indigo-600">N° de Orden</h2>
+              <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{orderId}</p>
+              <p className="mt-6 text-lg leading-8 text-gray-600">
+                Su orden ha sido generada con éxito.
+                En breve será notificado a su contacto telefónico.
+                Gracias por confiar en nosotros!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

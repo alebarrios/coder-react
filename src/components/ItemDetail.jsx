@@ -23,7 +23,7 @@ const ItemDetail = ({ item }) => {
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{item.title}</h5>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">{item.description}</p>
         <span className="text-3xl font-bold text-gray-900 dark:text-white my-2">$ {item.price}</span>
-        <ItemCount stockItems={item.quantity} onAdd={handleOnAdd}/>
+        <ItemCount stockItems={item.stock} onAdd={handleOnAdd}/>
       </div>
     </div>
   );
