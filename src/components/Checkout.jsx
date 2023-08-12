@@ -6,10 +6,26 @@ export default function Checkout() {
   const { cart } = useContext(CartContext);
   const [orderId, setOrderId] = useState(null);
   const [buyer, setBuyer] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     phone: "",
     email: "",
+    address: "",
+    city: "",
+    state: "",
+    zipCode: "",
   });
+
+  const {
+    firstName,
+    lastName,
+    phone,
+    email,
+    address,
+    city,
+    state,
+    zipCode,
+  } = buyer;
 
   function classNames(...classes) {
     return classes.filter(Boolean).join(" ");
@@ -25,7 +41,12 @@ export default function Checkout() {
     if ( !emailsAreTheSame(e) ) {
       e.target.email2.setCustomValidity("Los Emails no coinciden.");
       e.target.email2.reportValidity();
+      return;
     }
+    const total = cart.reduce((acum, i) => i.item.price + acum, 0);
+    const dia = new Date();
+    const order = { buyer, cart, total, dia };
+    console.log(order);
   };
 
   const emailsAreTheSame = (e) => {
@@ -40,6 +61,7 @@ export default function Checkout() {
       ...buyer,
       [e.target.name]: e.target.value,
     });
+    // console.log(buyer);
   };
 
   return (
@@ -97,8 +119,8 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
+                  name="firstName"
+                  value={firstName}
                   autoComplete="given-name"
                   required
                   onChange={handleInputChange}
@@ -114,10 +136,11 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="last-name"
-                  id="last-name"
+                  name="lastName"
+                  value={lastName}
                   autoComplete="family-name"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -130,10 +153,11 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="number"
-                  name="telephone"
-                  id="telephone"
-                  autoComplete="telephone"
+                  name="phone"
+                  value={phone}
+                  autoComplete="phone"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -145,11 +169,12 @@ export default function Checkout() {
               </label>
               <div className="mt-2">
                 <input
-                  id="email"
-                  name="email"
                   type="email"
+                  name="email"
+                  value={email}
                   autoComplete="email"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -178,8 +203,8 @@ export default function Checkout() {
               </label>
               <div className="mt-2">
                 <select
-                  id="country"
-                  name="country"
+                  name="invoiceType"
+                  id="invoiceType"
                   autoComplete="country-name"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"
                 >
@@ -196,10 +221,11 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="street-address"
-                  id="street-address"
+                  name="address"
+                  value={address}
                   autoComplete="street-address"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -213,9 +239,10 @@ export default function Checkout() {
                 <input
                   type="text"
                   name="city"
-                  id="city"
+                  value={city}
                   autoComplete="address-level2"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -228,10 +255,11 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="text"
-                  name="region"
-                  id="region"
+                  name="state"
+                  value={state}
                   autoComplete="address-level1"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -244,10 +272,11 @@ export default function Checkout() {
               <div className="mt-2">
                 <input
                   type="number"
-                  name="postal-code"
-                  id="postal-code"
+                  name="zipCode"
+                  value={zipCode}
                   autoComplete="postal-code"
                   required
+                  onChange={handleInputChange}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
