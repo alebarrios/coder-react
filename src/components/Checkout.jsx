@@ -57,7 +57,7 @@ export default function Checkout() {
   const generateOrder = (order) => {
 
   };
-  
+
   const handleInputChange = (e) => {
     e.target.setCustomValidity("");
     console.log(e.target.value);
@@ -79,8 +79,8 @@ export default function Checkout() {
               <li key={product.item.id} className="flex py-6">
                 <div className="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
                   <img
-                    src={"/" + product.item.image}
-                    alt={"Imagen de producto de" + product.item.name}
+                    src={"/" + product.item.img}
+                    alt={"Imagen de producto de" + product.item.title}
                     className="h-full w-full object-cover object-center"
                   />
                 </div>
@@ -89,7 +89,7 @@ export default function Checkout() {
                   <div>
                     <div className="flex justify-between text-base font-medium text-gray-900">
                       <h3>
-                        <a href="#">{product.item.name}</a>
+                        <a href="#">{product.item.title}</a>
                       </h3>
                       <p className="ml-4">$ {numberWithCommas(product.item.price * product.quantity)}</p>
                     </div>

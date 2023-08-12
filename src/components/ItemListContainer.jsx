@@ -1,17 +1,34 @@
-import useFetch from './useFetch';
 import { useParams } from 'react-router-dom';
 import ItemList from './ItemList';
+import { getFirestore, getDocs, collection, query, where} from 'firebase/firestore';
+import { useEffect, useState } from 'react';
 
 const ItemListContainer = () => {
   const { categoryId } = useParams();
-  const data = useFetch('../src/data/products.json', categoryId);
+  const [items, setItems] = useState();
 
-  const filterData = categoryId ?
-        data.products?.filter((product) => product.category === categoryId) :
-        data?.products;
+  const getItems = (category) => {
+    const db = getFirestore();
+    const queryCollection = category ?
+      query(collection(db, 'items'), where("category", "==", category)) :
+      collection(db, 'items');
+    getDocs(queryCollection).then((querySnapshot) => {
+      if (querySnapshot.size === 0) {
+        console.log('No hay productos en Firestore!');
+      }
+      setItems(
+          querySnapshot.docs.map((doc) => ( { id: doc.id, ...doc.data() } )));
+    }).catch((error) => {
+      console.log('Error buscando en Firestore: ', error);
+    });
+  };
+
+  useEffect(() => {
+    getItems(categoryId);
+  }, [categoryId]);
 
   return (
-    <ItemList products={filterData}/>
+    <ItemList products={items}/>
   );
 };
 
